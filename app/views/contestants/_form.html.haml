@@ -1,0 +1,16 @@
+= form_for @contestant do |f|
+  - if @contestant.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@contestant.errors.count, "error")} prohibited this contestant from being saved:"
+      %ul
+        - @contestant.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    .field
+      = f.label :email
+      = f.text_field :email, class: 'form-control'
+    .field
+      = f.label :may_contact
+      = f.check_box :may_contact, class: 'form-control'
+    .actions
+      = f.submit 'Save'

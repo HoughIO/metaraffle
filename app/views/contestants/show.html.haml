@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Email:
+  = @contestant.email
+%p
+  %b May contact:
+  = @contestant.may_contact
+
+= link_to 'Edit', edit_contestant_path(@contestant), class: 'btn btn-info'
+\|
+= link_to 'Back', contestants_path, class: 'btn btn-default'
