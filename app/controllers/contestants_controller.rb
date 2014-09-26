@@ -38,7 +38,7 @@ class ContestantsController < ApplicationController
 
     respond_to do |format|
       if @contestant.save
-        format.html { redirect_to new_entry_path(@contestant),
+        format.html { redirect_to new_entry_path(contestant_id: @contestant.id),
                                notice: 'Contestant was successfully created.' }
         format.json { render action: 'show', status: :created, location: @contestant }
       else

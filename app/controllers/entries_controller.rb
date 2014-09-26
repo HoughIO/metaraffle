@@ -14,7 +14,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @contestant = Contestant.find(params.require(:contestant_id))
+    @contestant = Contestant.find(params.require(contestant_id: @contestant.id))
     @entry = @contestant.entries.build
   end
 
@@ -25,7 +25,7 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    @contestant = Contestant.find(params.require(:contestant_id))
+    @contestant = Contestant.find(params.require(contestant: :contestant_id))
     @entry = @contestant.entries.build(entry_params)
 
     respond_to do |format|
